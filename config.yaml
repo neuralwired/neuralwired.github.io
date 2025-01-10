@@ -1,0 +1,71 @@
+disableKinds: 
+  - taxonomy
+
+baseURL: https://neuralwired.github.io/
+languageCode: en-us
+title: neuralwired
+
+summaryLength: 30
+
+buildFuture: true
+
+pagination:
+  pagerSize: 3
+  path: "page"
+
+pygmentsCodeFences: true
+pygmentsUseClasses: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: true
+        title: true
+  math:
+    enable: true
+
+build:
+  writeStats: true
+
+outputs:
+  home: 
+    - HTML
+    - RSS
+  section: 
+    - HTML
+    - RSS
+  
+permalinks:
+  posts: /:section/:contentbasename/
+
+module:
+  hugoVersion:
+    extended: true
+
+minify:
+  disableCSS: false
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false
+  minifyOutput: true
+  tdewolff:
+    css:
+      keepCSS2: true
+      precision: 1
+    js:
+      precision: 1
+      keepVarNames: false
+
+params:
+  description: neuralwired blog
+  author: neuralwired
+  excerptLength: 100
+  
+  github: https://github.com/neuralwired
+  linkedin: https://linkedin.com/in/neuralwired
+  twitter: https://twitter.com/neuralwired
