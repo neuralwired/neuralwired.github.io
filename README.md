@@ -1,0 +1,5 @@
+- 👋 Hi, I’m @neuralwired
+- 👀 I’m interested in retro tech, linux and anything-python
+- 🌱 I’m currently learning DSA
+- 💞️ I’m looking to collaborate on python projects
+- 📫 How to reach me : 📧 @ neuralwired@gmail.com
