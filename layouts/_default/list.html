@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="intro-section">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    {{ with .Content }}<div class="section-content">{{ . }}</div>{{ end }}
+</div>
+<section class="content-section blog-archive">
+    {{ if .Paginator.Pages }}
+    <div class="post-grid">{{ range .Paginator.Pages }}{{ partial "post-card.html" . }}{{ end }}</div>
+    {{ partial "pagination.html" . }}
+    {{ else }}<p class="no-posts">No content published here yet.</p>{{ end }}
+</section>
+{{ end }}
