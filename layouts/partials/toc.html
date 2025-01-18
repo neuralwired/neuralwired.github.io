@@ -1,0 +1,6 @@
+{{ if and (gt .WordCount 400) (.TableOfContents) }}
+<details class="toc-container" open>
+  <summary>Table of Contents</summary>
+  {{ .TableOfContents }}
+</details>
+{{ end }}
