@@ -1,0 +1,27 @@
+<article class="post-card">
+{{- $image := "" -}}
+{{- if .Params.featuredImage -}}{{- $image = .Params.featuredImage -}}
+{{- else -}}
+    {{- $firstImage := .Resources.GetMatch "featured-image.*" | default (.Resources.GetMatch "*.{jpg,jpeg,png,gif,webp}") -}}
+    {{- if $firstImage -}}{{- $image = $firstImage.RelPermalink -}}
+    {{- else -}}
+        {{- $images := findRE "<img src=\"([^\"]+)\"" .Content 1 -}}
+        {{- if ge (len $images) 1 -}}{{- $image = replaceRE "<img src=\"([^\"]+)\"" "$1" (index $images 0) -}}{{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- if $image -}}<div class="post-preview-image"><img src="{{ $image }}" alt="{{ .Title }}" loading="lazy"></div>{{- end -}}
+<div class="post-card-content">
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    {{ if not (or (eq .Section "categories") (eq .Section "authors")) }}
+    <div class="post-meta post-meta-top">
+        {{ with .Params.modified }}<span class="post-date">{{ .Format "2006-01-02" }}</span>{{ end }}
+        <span class="post-reading-time">{{ .ReadingTime }} min</span>
+    </div>
+    {{ with .Params.authors }}
+    <div class="post-meta post-meta-author">
+        <span class="post-author">by {{ range $i, $author := . }}{{ if $i }}, {{ end }}{{ $author }}{{ end }}</span>
+    </div>
+    {{ end }}
+    {{ end }}
+</div>
+</article>
