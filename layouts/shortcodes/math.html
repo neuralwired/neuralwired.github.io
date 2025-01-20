@@ -1,0 +1,4 @@
+{{- $equation := .Inner | markdownify -}}
+<div class="math-block">
+$${{ $equation | safeHTML }}$$
+</div>
