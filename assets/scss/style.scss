@@ -462,7 +462,22 @@ pre code {
   top: 0;
   z-index: 1000;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.4,0,0.2,1);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: none;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100vw;
+    background: var(--border-color);
+    z-index: 1001;
+    margin-left: calc(-1 * (100vw - 100%) / 2);
+    margin-right: calc(-1 * (100vw - 100%) / 2);
+    transition: background 0.3s ease;
+  }
 }
 
 .header-hidden {
@@ -556,6 +571,7 @@ pre code {
   z-index: 9999;
   background: var(--bg);
   border: 1px solid var(--header-border);
+  border-top: 0;
   border-right: 0;
   border-left: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
@@ -653,20 +669,33 @@ pre code {
 .site-footer {
   width: 100%;
   background: var(--bg);
-  border-top: 1px solid var(--border-color);
-  z-index: 1000;
-  padding: 0.7rem 0;
-  margin-top: auto;
+  border-top: none;
+  position: relative;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    width: 100vw;
+    background: var(--border-color);
+    z-index: 1001;
+    margin-left: calc(-1 * (100vw - 100%) / 2);
+    margin-right: calc(-1 * (100vw - 100%) / 2);
+    transition: background 0.3s ease;
+  }
 }
 
 .footer-content {
   max-width: 700px;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0.5rem;
 }
 
 .social-links {
