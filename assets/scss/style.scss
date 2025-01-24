@@ -7,6 +7,7 @@
   --c: #fff;
   --m: #555;
   --header-border: #000000;
+  --header-separator: #dddddd;
   --border-color: #000;
 }
 
@@ -19,6 +20,7 @@ html[data-theme='dark'] {
   --c: #1a1a1a;
   --m: #aaa;
   --header-border: #ffffff;
+  --header-separator: #444444;
   --border-color: #fff;
 }
 
@@ -640,7 +642,7 @@ pre code {
   bottom: 0;
   height: 1px;
   width: 100vw;
-  background: var(--header-border);
+  background: var(--header-separator);
   z-index: 1;
   margin-left: calc(-1 * (100vw - 100%) / 2);
   margin-right: calc(-1 * (100vw - 100%) / 2);
