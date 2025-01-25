@@ -1,8 +1,6 @@
 ---
-title: ""
+title: "Hey, I’m neuralwired!"
 ---
-
-## Hey, I’m neuralwired!
 
 I’m a Computer Science student who is exploring new ways to push code further.
 
