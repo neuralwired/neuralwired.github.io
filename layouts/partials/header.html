@@ -59,15 +59,16 @@
     function updateThemeMenuIcon() {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       if (currentTheme === 'dark') {
-        iconSun.style.display = 'inline'; // Show sun in dark mode
+        iconSun.style.display = 'inline';
         iconMoon.style.display = 'none';
       } else {
-        iconSun.style.display = 'none'; // Show moon in light mode
+        iconSun.style.display = 'none'; 
         iconMoon.style.display = 'inline';
       }
     }
     updateThemeMenuIcon();
-    themeToggleMenu.addEventListener('click', () => {
+    themeToggleMenu.addEventListener('click', (event) => {
+      event.stopPropagation(); 
       const currentTheme = document.documentElement.getAttribute('data-theme');
       if (currentTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'light');
